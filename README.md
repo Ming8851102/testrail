@@ -3,15 +3,9 @@ testrail
 
 testrail is a Go client library for accessing the [TestRail](http://www.gurock.com/testrail/) API
 
-**travis-ci:** [![Build Status](https://travis-ci.org/tpps88206/testrail.svg?branch=master)](https://travis-ci.org/tpps88206/testrail)
-
-**GoDoc:** [![GoDoc](https://godoc.org/github.com/tpps88206/testrail?status.svg)](https://godoc.org/github.com/tpps88206/testrail)
-
-**Test Coverage:** 9.52%
-
 References
 ----------
-[https://godoc.org/github.com/tpps88206/testrail](https://godoc.org/github.com/tpps88206/testrail)
+[https://github.com/educlos/testrail](https://github.com/educlos/testrail)
 
 
 Example usage
@@ -43,4 +37,4 @@ Example usage
 License
 -------
 
-MIT
+[MIT](https://github.com/educlos/testrail/blob/master/LICENSE)
