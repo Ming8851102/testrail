@@ -4,18 +4,25 @@ import "strconv"
 
 // Test represent a Test
 type Test struct {
-	AssignedToID     int    `json:"assignedto_id"`
-	CaseID           int    `json:"case_id"`
-	Estimate         string `json:"estimate"`
-	EstimateForecast string `json:"estimate_forecast"`
-	ID               int    `json:"id"`
-	MilestoneID      int    `json:"milestone_id"`
-	PriorityID       int    `json:"priority_id"`
-	Refs             string `json:"refs"`
-	RunID            int    `json:"run_id"`
-	StatusID         int    `json:"status_id"`
-	Title            string `json:"title"`
-	TypeID           int    `json:"type_id"`
+	AssignedToID         int                `json:"assignedto_id"`
+	CaseID               int                `json:"case_id"`
+	Estimate             string             `json:"estimate"`
+	EstimateForecast     string             `json:"estimate_forecast"`
+	ID                   int                `json:"id"`
+	MilestoneID          int                `json:"milestone_id"`
+	PriorityID           int                `json:"priority_id"`
+	Refs                 string             `json:"refs"`
+	RunID                int                `json:"run_id"`
+	StatusID             int                `json:"status_id"`
+	Title                string             `json:"title"`
+	TypeID               int                `json:"type_id"`
+	CustomStepsSeparated []CustomStepsField `json:"custom_steps_separated"`
+	Custom_preconds      string             `json:"custom_preconds"`
+}
+
+type CustomStepsField struct {
+	Content  string `json:"content"`
+	Expected string `json:"expected"`
 }
 
 // GetTest returns the test testID
