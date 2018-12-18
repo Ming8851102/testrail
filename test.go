@@ -23,6 +23,7 @@ type Test struct {
 type CustomStepsField struct {
 	Content  string `json:"content"`
 	Expected string `json:"expected"`
+	Actual   string `json:"actual"`
 }
 
 // GetTest returns the test testID
