@@ -7,6 +7,7 @@ type Milestone struct {
 	CompletedOn int    `json:"completed_on"`
 	Description string `json:"description"`
 	DueOn       int    `json:"due_on"`
+	StartOn     int    `json:"start_on"`
 	ID          int    `json:"id"`
 	IsCompleted bool   `json:"is_completed"`
 	Name        string `json:"name"`
