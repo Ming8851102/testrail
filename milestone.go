@@ -2,17 +2,61 @@ package testrail
 
 import "strconv"
 
+// SubMilestone represents a Milestone
+type SubMilestone struct {
+	CompletedOn int `json:"completed_on"`
+	Description int `json:"description"`
+	DueOn       int         `json:"due_on"`
+	ID          int         `json:"id"`
+	IsCompleted bool        `json:"is_completed"`
+	IsStarted   bool        `json:"is_started"`
+	Milestones  []struct {
+		CompletedOn int `json:"completed_on"`
+		Description int `json:"description"`
+		DueOn       int         `json:"due_on"`
+		ID          int         `json:"id"`
+		IsCompleted bool        `json:"is_completed"`
+		IsStarted   bool        `json:"is_started"`
+		Name        string      `json:"name"`
+		ParentID    int         `json:"parent_id"`
+		ProjectID   int         `json:"project_id"`
+		StartOn     int         `json:"start_on"`
+		StartedOn   int `json:"started_on"`
+		URL         string      `json:"url"`
+	} `json:"milestones"`
+	Name      string      `json:"name"`
+	ParentID  int `json:"parent_id"`
+	ProjectID int         `json:"project_id"`
+	StartOn   int `json:"start_on"`
+	StartedOn int         `json:"started_on"`
+	URL       string      `json:"url"`
+}
+
+// Milestone represents a Milestone
+type Milestones struct {
+	CompletedOn   int            `json:"completed_on"`
+	Description   string         `json:"description"`
+	DueOn         int            `json:"due_on"`
+	StartOn       int            `json:"start_on"`
+	ID            int            `json:"id"`
+	IsCompleted   bool           `json:"is_completed"`
+	Name          string         `json:"name"`
+	ProjectID     int            `json:"project_id"`
+	URL           string         `json:"url"`
+	SubMilestones []SubMilestone `json:"subMilestones"`
+}
+
 // Milestone represents a Milestone
 type Milestone struct {
-	CompletedOn int    `json:"completed_on"`
-	Description string `json:"description"`
-	DueOn       int    `json:"due_on"`
-	StartOn     int    `json:"start_on"`
-	ID          int    `json:"id"`
-	IsCompleted bool   `json:"is_completed"`
-	Name        string `json:"name"`
-	ProjectID   int    `json:"project_id"`
-	URL         string `json:"url"`
+	CompletedOn   int            `json:"completed_on"`
+	Description   string         `json:"description"`
+	DueOn         int            `json:"due_on"`
+	StartOn       int            `json:"start_on"`
+	ID            int            `json:"id"`
+	IsCompleted   bool           `json:"is_completed"`
+	Name          string         `json:"name"`
+	ProjectID     int            `json:"project_id"`
+	URL           string         `json:"url"`
 }
 
 // SendableMilestone represents a Milestone
@@ -24,8 +68,8 @@ type SendableMilestone struct {
 }
 
 // GetMilestone returns the existing milestone milestoneID
-func (c *Client) GetMilestone(milestoneID int) (Milestone, error) {
-	returnMilestone := Milestone{}
+func (c *Client) GetMilestone(milestoneID int) (SubMilestone, error) {
+	returnMilestone := SubMilestone{}
 	err := c.sendRequest("GET", "get_milestone/"+strconv.Itoa(milestoneID), nil, &returnMilestone)
 	return returnMilestone, err
 }
